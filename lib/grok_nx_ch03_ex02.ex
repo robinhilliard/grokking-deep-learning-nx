@@ -2,14 +2,12 @@ defmodule GrokNxCh3Ex2 do
   @moduledoc """
   Andrew W. Trask. “Grokking Deep Learning.” Manning Press
   Chapter 3 example 2
-  Stacked network with a single hidden layer.
-  I may be overdoing it trying to make this version
-  look close to the way the original NumPy version
-  assembles the weights. I didn't use the sigils
-  in this example to keep the original comment format
-  in the weight tensors. We have to make our two
-  weights matrices into tensors straight away to be
-  able to transpose them.
+  
+  Stacked network with a single hidden layer. I may be overdoing it trying to
+  make this version look close to the way the original NumPy version assembles
+  the weights. I didn't use the sigils in this example to keep the original
+  comment format in the weight tensors. We have to make our two weights
+  matrices into tensors straight away to be able to transpose them.
   """
   
   
@@ -39,17 +37,16 @@ defmodule GrokNxCh3Ex2 do
       [0.0, 1.3, 0.1]   # sad?
     ]) |> Nx.transpose  # .T in NumPy example
 
-    # Create 0s in the target shape, then paste the two
-    # weights matrices into position. They have to be
-    # 3D not 2D to use put_slice so we add an extra top
-    # layer wrapper dimension. Interesting to work out but
-    # I sort of hope there is a better way to do this.
+    # Create 0s in the target shape, then paste the two weights matrices into
+    # position. They have to be 3D not 2D to use put_slice so we add an extra
+    # top layer wrapper dimension. Interesting to work out but# I sort of hope
+    # there is a better way to do this.
     weights = Nx.broadcast(0.0, {2, 3, 3})
     |> Nx.put_slice([0, 0, 0], ih_wgt |> Nx.new_axis(0))
     |> Nx.put_slice([1, 0, 0], hp_wgt |> Nx.new_axis(0))
     
-    # From here we repeat code from example 1 but format
-    # to show the three predictions
+    # From here we repeat code from example 1 but format to show the three
+    # predictions
     
     toes_wlrec_nfans = ~M[
         8.5  9.5 9.9 9.0
