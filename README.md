@@ -1,7 +1,10 @@
 # grokking-deep-learning-nx
 
-Exercises and examples from *Grokking Deep Learning* ported to 
-Elixir Nx. I am new to Nx so there are probably better ways
+Examples from *Grokking Deep Learning* ported to 
+Elixir Nx. Skips notebooks and stuff that doesn't 
+exercise Nx tensor capabilities.
+
+I am new to Nx so there are probably better ways
 to do most of this, happy to accept PRs. Keep in mind that
 the aim is for the ported versions to more or less correspond
 to the NumPy examples. If this makes things a bit contrived then
