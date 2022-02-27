@@ -1,2 +1,12 @@
 # grokking-deep-learning-nx
-Exercises and examples from Grokking Deep Learning (Andrew Trask, Manning Press) ported to Elixir NX
+
+Exercises and examples from *Grokking Deep Learning* ported to 
+Elixir Nx. I am new to Nx so there are probably better ways
+to do most of this, happy to accept PRs. Keep in mind that
+the aim is for the ported versions to more or less correspond
+to the NumPy examples. If this makes things a bit contrived then
+that's ok, I'll try to address in the comments.
+
+Andrew W. Trask. “Grokking Deep Learning.” Manning Press
+
+https://www.manning.com/books/grokking-deep-learning
