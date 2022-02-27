@@ -6,7 +6,8 @@ defmodule GrokNxCh3 do
   
   import Nx.Defn
 
-  # Trivial, but idiomatic to Nx
+  # Trivial, but idiomatic to Nx for this sort of function
+  # to be a defn not a def.
   defn neural_network(input, weights) do
     Nx.dot(input, weights)
   end
@@ -17,7 +18,10 @@ defmodule GrokNxCh3 do
     
     weights = Nx.tensor([0.1, 0.2, 0.0])
     
-    # See below for why this was combined.
+    # toes = number of pitches/bowls
+    # wlrec = win/loss record
+    # nfans = number of fans
+    # See below for why this was combined into a single tensor.
     toes_wlrec_nfans = Nx.tensor([
         [8.5, 9.5, 9.9, 9.0],
         [0.65, 0.8, 0.8, 0.9],
@@ -28,7 +32,9 @@ defmodule GrokNxCh3 do
     # tensors was really inelegant - you couldn't access raw floats
     # easily inside the tensor. For this reason I combined the three
     # separate tensors into a single test/training tensor and sliced
-    # the input (first column) out of the combined tensor.
+    # the input (first column) out of the combined tensor. You need
+    # to transpose the input column to a row before passing to
+    # the network.
     input = toes_wlrec_nfans
             |> Nx.slice_axis(0, 1, 1)
             |> Nx.transpose()
